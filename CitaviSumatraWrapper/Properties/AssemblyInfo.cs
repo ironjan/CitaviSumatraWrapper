@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CitaviSumatraWrapper")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyDescription("A small wrapper that converts selected Adobe style command line parameters to SumatraPDF parameters. This project is primarily focussed on adding support for SumatraPDF to Citavi.")]
+[assembly: AssemblyConfiguration("Debug")]
+[assembly: AssemblyCompany("https://github.com/ironjan/CitaviSumatraWrapper")]
 [assembly: AssemblyProduct("CitaviSumatraWrapper")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
@@ -21,15 +21,6 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("6DFED69D-11D9-4B6C-9C2B-A51055CE276E")]
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+// Follow http://semver.org/, ignore 4th digit...
+[assembly: AssemblyVersion("0.5.0.0")]
+[assembly: AssemblyFileVersion("0.5.0.0")]
