@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitaviSumatraWrapper", "CitaviSumatraWrapper\CitaviSumatraWrapper.csproj", "{6DFED69D-11D9-4B6C-9C2B-A51055CE276E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitaviSumatraWrapperTest", "CitaviSumatraWrapperTest\CitaviSumatraWrapperTest.csproj", "{78090D84-00A3-4853-A1C4-B3ACF9F6754A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DFED69D-11D9-4B6C-9C2B-A51055CE276E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DFED69D-11D9-4B6C-9C2B-A51055CE276E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DFED69D-11D9-4B6C-9C2B-A51055CE276E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DFED69D-11D9-4B6C-9C2B-A51055CE276E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78090D84-00A3-4853-A1C4-B3ACF9F6754A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78090D84-00A3-4853-A1C4-B3ACF9F6754A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78090D84-00A3-4853-A1C4-B3ACF9F6754A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78090D84-00A3-4853-A1C4-B3ACF9F6754A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
