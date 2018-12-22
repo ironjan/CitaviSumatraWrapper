@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 
 namespace CitaviSumatraWrapper
@@ -9,12 +8,12 @@ namespace CitaviSumatraWrapper
 
         public static void StartSumatra(string sumatraArgs)
         {
-            /*
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = SumatraExe;
-            startInfo.Arguments = sumatraArgs;
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = SumatraExe, 
+                Arguments = sumatraArgs
+            };
             Process.Start(startInfo);
-            */
 
             Logger.LogStartCommand(SumatraExe, sumatraArgs);
         }

@@ -13,22 +13,22 @@ namespace CitaviSumatraWrapper
 
         public static void LogStartCommand(string sumatraExe, string sumatraArgs)
         {
-            var date = DateTime.Now;
-            
-            var msg = $"{date}: \"{sumatraExe}\" {sumatraArgs}";
+            var msg = $"{DateTime.Now}: \"{sumatraExe}\" {sumatraArgs}";
+         
             Console.WriteLine(msg);
+            
             try
             {
                 TryToWriteToLogFile(msg);
             }
             catch (Exception e)
             {
-                // Doesn't matter anyway
+                // Doesn't matter anyway - usually won't be displayed
                 Console.WriteLine(e);
             }
         }
 
-        public static void TryToWriteToLogFile(string msg)
+        private static void TryToWriteToLogFile(string msg)
         {
             if(!Directory.Exists(LogDir)){
             	Directory.CreateDirectory(LogDir);
@@ -38,17 +38,17 @@ namespace CitaviSumatraWrapper
             	File.Create(LogFile);
             }
 
-            
             var currentLogFileLines = File.ReadAllLines(LogFile, Encoding.UTF8).ToList();
 
             var doesLogFileNeedTrimming = currentLogFileLines.Count > LogFileMaxLinesCount;
-            var numberOfRemovedLines = doesLogFileNeedTrimming ? LogFileSkipLinesCount : 0;
+            var numberOfLinesToRemove = doesLogFileNeedTrimming ? LogFileSkipLinesCount : 0; 
 
             var writeLogFileLines = new List<string>();
-            writeLogFileLines.AddRange(currentLogFileLines.Skip(numberOfRemovedLines));
+            writeLogFileLines.AddRange(currentLogFileLines.Skip(numberOfLinesToRemove)); 
             writeLogFileLines.Add(msg);
             
             var newLogFileContent = string.Join("\n", writeLogFileLines);
+            
             File.WriteAllText(LogFile, newLogFileContent, Encoding.UTF8);
         }
 

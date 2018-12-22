@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CitaviSumatraWrapper
+﻿namespace CitaviSumatraWrapper
 {
     internal class Program
     {

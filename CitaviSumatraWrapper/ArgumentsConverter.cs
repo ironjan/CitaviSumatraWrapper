@@ -17,8 +17,6 @@ namespace CitaviSumatraWrapper
                 return args[0];
             }
 
-
-
             // We just handle "/A <options> <file>"
             // All other cases are just joined together
             var hasAdobeArgumentSwitch = AdobeArgumentSwitch.Equals(args[0]);
@@ -28,8 +26,6 @@ namespace CitaviSumatraWrapper
             {
                 return string.Join(" ", args);
             }
-            
-            
             
             // if no page=<number> was found, this maybePage.ToString will be empty
             var maybePageArgMatch = Regex.Match(args[1], @"page=\d+");
