@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -38,17 +39,20 @@ namespace CitaviSumatraWrapper
             }
 
             
-            var readLogFileLines = File.ReadAllLines(LogFile, Encoding.UTF8).ToList();
-            var readLogFileLinesCount = readLogFileLines.Count;
+            var currentLogFileLines = File.ReadAllLines(LogFile, Encoding.UTF8).ToList();
 
-            var writeLogFileLines = readLogFileLines;
-            if(readLogFileLinesCount > 64) {
-            	writeLogFileLines = writeLogFileLines.Skip(32).ToList();
-            }
+            var doesLogFileNeedTrimming = currentLogFileLines.Count > LogFileMaxLinesCount;
+            var numberOfRemovedLines = doesLogFileNeedTrimming ? LogFileSkipLinesCount : 0;
+
+            var writeLogFileLines = new List<string>();
+            writeLogFileLines.AddRange(currentLogFileLines.Skip(numberOfRemovedLines));
+            writeLogFileLines.Add(msg);
+            
             var newLogFileContent = string.Join("\n", writeLogFileLines);
             File.WriteAllText(LogFile, newLogFileContent, Encoding.UTF8);
         }
 
-
+        private static readonly int LogFileMaxLinesCount = 64;
+        private static readonly int LogFileSkipLinesCount = 32;
     }
 }
