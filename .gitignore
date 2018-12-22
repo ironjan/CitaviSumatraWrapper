@@ -176,3 +176,5 @@ publish/
 *.[Pp]ublish.xml
 *.azurePubxml
 
+# other
+.idea/
