@@ -6,8 +6,7 @@ namespace CitaviSumatraWrapper
     {
         public static void Main(string[] args)
         {
-            //var sumatraArgs = ArgumentsConverter.ConvertedArgs(args);
-            //Console.WriteLine("sumatra.exe "+sumatraArgs);
+            SumatraStarter.StartSumatra(ArgumentsConverter.Convert(args));
         }
 
     }

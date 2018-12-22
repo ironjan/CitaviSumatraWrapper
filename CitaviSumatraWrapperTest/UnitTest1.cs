@@ -43,6 +43,15 @@ namespace CitaviSumatraWrapperTest
      var result = ArgumentsConverter.Convert(args);
      Assert.AreEqual(expected, result);
    }
+   
+   [Test]
+   [TestCase(@"C:\some\file.pdf")]
+   [TestCase(@"C:\file.pdf")]
+   [TestCase(@"D:\file.pdf")]
+   [TestCase("\"C:\\some\\file with spaces.pdf\"")]
+   public void SingeArgumentGetsPassedOn(string arg){
+     Assert.AreEqual(arg, ArgumentsConverter.Convert(new []{arg}));
+   }
    #endregion
 
 
@@ -86,15 +95,6 @@ namespace CitaviSumatraWrapperTest
     Assert.AreEqual(expected, result);
   }
 
-  [Test]
-  public void IncompleteAdobeArgsGetIgnored()
-  {
-   var path = @"C:\some\file.pdf";
-   var args = new[] {"/A", path};
-   var expected = $"{path}";
-   var result = ArgumentsConverter.Convert(args);
-   Assert.AreEqual(expected, result);
- }
 
 }
 }
