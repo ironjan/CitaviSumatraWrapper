@@ -8,15 +8,18 @@ namespace CitaviSumatraWrapper
 {
     public static class Logger
     {
-    	private static readonly string LogDir = @"C:\Temp\";
-    	private static readonly string LogFile = LogDir+"CitaviSumatraWrapper.log";
+        private static readonly string LogDir = @"C:\Temp\";
+        private static readonly string LogFile = LogDir + "CitaviSumatraWrapper.log";
+
+        private static readonly int LogFileMaxLinesCount = 64;
+        private static readonly int LogFileSkipLinesCount = 32;
 
         public static void LogStartCommand(string sumatraExe, string sumatraArgs)
         {
             var msg = $"{DateTime.Now}: \"{sumatraExe}\" {sumatraArgs}";
-         
+
             Console.WriteLine(msg);
-            
+
             try
             {
                 TryToWriteToLogFile(msg);
@@ -30,29 +33,22 @@ namespace CitaviSumatraWrapper
 
         private static void TryToWriteToLogFile(string msg)
         {
-            if(!Directory.Exists(LogDir)){
-            	Directory.CreateDirectory(LogDir);
-            }
+            if (!Directory.Exists(LogDir)) Directory.CreateDirectory(LogDir);
 
-            if(!File.Exists(LogFile)) {
-            	File.Create(LogFile);
-            }
+            if (!File.Exists(LogFile)) File.Create(LogFile);
 
             var currentLogFileLines = File.ReadAllLines(LogFile, Encoding.UTF8).ToList();
 
             var doesLogFileNeedTrimming = currentLogFileLines.Count > LogFileMaxLinesCount;
-            var numberOfLinesToRemove = doesLogFileNeedTrimming ? LogFileSkipLinesCount : 0; 
+            var numberOfLinesToRemove = doesLogFileNeedTrimming ? LogFileSkipLinesCount : 0;
 
             var writeLogFileLines = new List<string>();
-            writeLogFileLines.AddRange(currentLogFileLines.Skip(numberOfLinesToRemove)); 
+            writeLogFileLines.AddRange(currentLogFileLines.Skip(numberOfLinesToRemove));
             writeLogFileLines.Add(msg);
-            
+
             var newLogFileContent = string.Join("\n", writeLogFileLines);
-            
+
             File.WriteAllText(LogFile, newLogFileContent, Encoding.UTF8);
         }
-
-        private static readonly int LogFileMaxLinesCount = 64;
-        private static readonly int LogFileSkipLinesCount = 32;
     }
 }

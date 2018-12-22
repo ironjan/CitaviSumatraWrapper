@@ -10,7 +10,7 @@ namespace CitaviSumatraWrapper
         {
             var startInfo = new ProcessStartInfo
             {
-                FileName = SumatraExe, 
+                FileName = SumatraExe,
                 Arguments = sumatraArgs
             };
             Process.Start(startInfo);

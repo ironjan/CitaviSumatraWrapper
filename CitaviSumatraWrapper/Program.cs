@@ -6,6 +6,5 @@
         {
             SumatraStarter.StartSumatra(ArgumentsConverter.Convert(args));
         }
-
     }
 }
