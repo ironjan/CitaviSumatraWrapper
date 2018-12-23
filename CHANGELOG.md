@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ...
 
+## [0.6.3] - 2018-12-23
+- Fixed: Paths with spaces were handled incorrectly
+
 ## [0.5.0] - 2018-12-22
 - Initial implementation.
 - Added: Support for simple Citavi arguments, i.e. `/A "page=5" "C:\some\file path.pdf"`

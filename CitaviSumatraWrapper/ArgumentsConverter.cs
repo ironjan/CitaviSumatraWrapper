@@ -10,7 +10,7 @@ namespace CitaviSumatraWrapper
         {
             if (args.Length == 0) return "";
 
-            if (args.Length == 1) return args[0];
+            if (args.Length == 1) return $"\"{args[0]}\"";
 
             // We just handle "/A <options> <file>"
             // All other cases are just joined together
@@ -27,8 +27,8 @@ namespace CitaviSumatraWrapper
             var wrappedFilePath = $"\"{args[2]}\"";
 
             return hasPageArgument
-                ? $"{wrappedFilePath}"
-                : $"-page {maybePage} {wrappedFilePath}";
+                ? @wrappedFilePath
+                : $"-page {maybePage} " + @wrappedFilePath;
         }
     }
 }

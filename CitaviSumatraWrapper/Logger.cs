@@ -14,9 +14,18 @@ namespace CitaviSumatraWrapper
         private static readonly int LogFileMaxLinesCount = 64;
         private static readonly int LogFileSkipLinesCount = 32;
 
+        public static void LogOriginalArguments(string[] args){
+            PrintAndWriteToFile(args.Length + " arguments: " + string.Join(" ", args));
+        }
+
         public static void LogStartCommand(string sumatraExe, string sumatraArgs)
         {
-            var msg = $"{DateTime.Now}: \"{sumatraExe}\" {sumatraArgs}";
+            PrintAndWriteToFile($"\"{sumatraExe}\" {sumatraArgs}");
+        }
+
+        private static void PrintAndWriteToFile(string untimedMsg)
+        {
+            var msg = $"{AssemblyInfo.AppName} - {DateTime.Now}: {untimedMsg}";
 
             Console.WriteLine(msg);
 

@@ -91,7 +91,7 @@ namespace CitaviSumatraWrapperTest
         [TestCase("\"C:\\some\\file with spaces.pdf\"")]
         public void SingeArgumentGetsPassedOn(string arg)
         {
-            Assert.AreEqual(arg, ArgumentsConverter.Convert(new[] {arg}));
+            Assert.AreEqual($"\"{arg}\"", ArgumentsConverter.Convert(new[] {arg}));
         }
     }
 }
