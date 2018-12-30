@@ -15,7 +15,6 @@ namespace CitaviSumatraWrapper
             };
             Process.Start(startInfo);
 
-            Logger.LogStartCommand(SumatraExe, sumatraArgs);
         }
     }
 }

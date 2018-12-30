@@ -27,8 +27,8 @@ namespace CitaviSumatraWrapper
             var wrappedFilePath = $"\"{args[2]}\"";
 
             return hasPageArgument
-                ? @wrappedFilePath
-                : $"-page {maybePage} " + @wrappedFilePath;
+                ? wrappedFilePath
+                : $"-page {maybePage} " + wrappedFilePath;
         }
     }
 }

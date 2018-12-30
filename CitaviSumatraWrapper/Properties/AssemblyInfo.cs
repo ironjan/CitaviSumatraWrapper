@@ -26,6 +26,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion(AssemblyInfo.Version)]
 
 public static class AssemblyInfo {
-  public const string Version = "0.6.3.0";
+  public const string Version = "0.6.4.0";
   public const string AppName = "CitaviSumatraWrapper - " + Version;
 }

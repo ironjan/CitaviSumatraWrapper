@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- ...
+- 
+
+## [0.6.4] - 2018-12-30
+
+- Added: more logging
+- Added: press key to exit
 
 ## [0.6.3] - 2018-12-23
 - Fixed: Paths with spaces were handled incorrectly
